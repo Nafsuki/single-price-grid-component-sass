@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+// VARIABLES
+$cyan: hsl(179, 62%, 43%);
+$bright-yellow: hsl(71, 73%, 54%);
+$light-gray: hsl(204, 43%, 93%);
+$grayish-blue: hsl(218, 22%, 67%);
+$font-family: 'Karla', sans-serif;
+
+// GENERAL SETTINGS
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $light-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: $font-family;
+}
+
+.container {
+  width: 70rem;
+  height: auto;
+  box-shadow: 1rem 1rem 3rem 0.3rem $grayish-blue;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'box1 box1'
+    'box2 box3';
+  .box {
+    padding: 0;
+    margin: 0;
+    .wrapper {
+      margin: 4rem;
+    }
+    &-1 {
+      height: auto;
+      grid-area: box1;
+      border-top-right-radius: 0.8rem;
+      border-top-left-radius: 0.8rem;
+      h2 {
+        color: $cyan;
+        margin: 0;
+      }
+      h2 + p {
+        color: $bright-yellow;
+        font-weight: 700;
+        margin: 1.8rem 0 1.2rem;
+      }
+      p {
+        color: $grayish-blue;
+        line-height: 2.5rem;
+        margin: 0;
+      }
+    }
+    &-2 {
+      grid-area: box2;
+      height: 100%;
+      color: #fff;
+      background-color: $cyan;
+      border-bottom-left-radius: 0.8rem;
+      h3 {
+        margin: 0;
+      }
+      .price-box {
+        margin: 2rem 0 -1rem 0;
+        display: flex;
+        align-items: center;
+        .price {
+          margin: 0;
+          font-size: 3.8rem;
+        }
+        .per-month {
+          padding-left: 1rem;
+          opacity: 0.8;
+        }
+      }
+      a {
+        display: block;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 3rem;
+        padding: 1.8rem 3rem;
+        border-radius: 0.5rem;
+        box-shadow: 0.3rem 0.5rem 1.2rem 0.1rem hsl(179, 62%, 34%);
+        text-align: center;
+        background-color: $bright-yellow;
+        &:hover {
+          color: $cyan;
+          background-color: hsl(70, 84%, 83%);
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+    &-3 {
+      grid-area: box3;
+      background-color: #35c9c6;
+      color: #fff;
+      border-bottom-right-radius: 0.8rem;
+      h3 {
+        margin: 0;
+      }
+      p {
+        line-height: 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  body {
+    height: auto;
+    overflow-y: scroll;
+  }
+  .container {
+    width: 55rem;
+    margin: 10rem auto;
+    height: auto;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'box1'
+      'box2'
+      'box3';
+    .box {
+      &-2 {
+        border-bottom-left-radius: 0;
+      }
+      &-3 {
+        border-bottom-left-radius: 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    margin: 8rem auto;
+    width: 30rem;
+    .box {
+      .wrapper {
+        margin: 2.5rem;
+      }
+      &-1 {
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
+      }
+      &-2 {
+        a {
+          padding: 1.5rem 3rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+// .attribution {
+//   font-size: 11px;
+//   text-align: center;
+// }
+// .attribution a {
+//   color: hsl(228, 45%, 44%);
+// }
